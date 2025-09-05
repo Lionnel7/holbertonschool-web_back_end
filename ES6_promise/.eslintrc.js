@@ -1,17 +1,26 @@
-// .eslintrc.js
 module.exports = {
   env: {
-    browser: true,
-    es2021: true,
-    node: true,
+    browser: false,
+    es6: true,
     jest: true,
   },
-  extends: 'eslint:recommended',
+  extends: [
+    'airbnb-base',
+    'plugin:jest/all',
+  ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
   parserOptions: {
-    ecmaVersion: 12,
+    ecmaVersion: 2018,
     sourceType: 'module',
   },
+  plugins: [
+    'jest',
+  ],
+  root: true,
   rules: {
-   
+    'no-shadow': ['error', { allow: ['err', 'res'] }],
   },
 };
